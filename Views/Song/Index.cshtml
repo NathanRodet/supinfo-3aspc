@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Song>
+
+@{
+    ViewData["Title"] = "Songs Page";
+}
+
+<div class="text-center mt-20">
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <h1 class="display-4">Songs</h1>
+        <a class="btn btn-primary ml-10" id="btn-padding-bottom" asp-controller="Song" asp-action="Add">Add song</a>
+    </div>
+</div>
+
+
+@Html.AntiForgeryToken()
+<div class="px-10" style="margin-bottom: 80px;">
+    @if (!Model.Any())
+    {
+        <div class="alert alert-primary" role="alert">
+            <h4 class="alert-heading mb-0">
+                No song found
+            </h4>
+        </div>
+    } 
+    
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <div class="d-flex justify-content-between align-items-center" id="listing-theme">
+                <p class="card-title mb-0">
+                    @Html.DisplayFor(modelItem => item.Name)
+                </p>
+                <div class="d-flex">
+                    <button onclick='playSong("@item.Name", "@item.Path")' class="btn btn-success mr-10">
+                        <i class="fa fa-play"></i>
+                    </button>
+                    <button onclick="openAddSongToPlaylistModal(@item.ID)" class="btn btn-primary mr-10">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                    <form asp-controller="Song" asp-action="Delete" asp-route-id="@item.ID" method="post">
+                        <button type="submit" class="btn btn-danger">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+</div>

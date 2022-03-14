@@ -1,0 +1,21 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <h1 class="display-4">Welcome back</h1>
+        <p> You can now access your playlists, add songs and listen to them. </p>
+    }
+    @if (!SignInManager.IsSignedIn(User))
+    {
+        <h1 class="display-4">Welcome</h1>
+        <p> beautiful school project using ASP.Net Core and the following library : <a href="https://wavesurfer-js.org">wavesurfer</a></p>
+    }
+</div>

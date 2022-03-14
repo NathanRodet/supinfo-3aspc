@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Add song";
+}
+
+<div class="text-center mt-20">
+    <h1>Add Song</h1>
+</div>
+
+<div class="d-flex justify-content-center w-full">
+    <div class="w-500">
+        <form asp-controller="Song" asp-action="Upload" method="post" enctype="multipart/form-data" class="mt-5">
+            <div class="form-group">
+                <label for="files" class="form-label">Upload songs</label>
+                <input class="form-control" type="file" id="files" name="files" multiple="multiple">
+            </div>
+            <hr class="mb-20">
+            <button class="btn btn-primary btn-block mt-10" type="submit">Add</button>
+        </form>
+    </div>
+</div>

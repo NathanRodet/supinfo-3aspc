@@ -1,0 +1,51 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+#btn-padding-bottom {
+    margin-bottom: 10px;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+:root {
+    --color-bg: #ffffff;
+    --bs-body-bg: #ffffff;
+    --bs-white-rgb: 255,255,255;
+    --bs-body-rgb: 33,37,41;
+    --bs-body-color: #212529;
+}
+
+.component {
+    background-color: var(--color-bg);
+}
+
+#registerSubmit {
+    margin-top: 10px;
+}
+
+#listing-theme {
+    padding-left: 5px;
+}
+
+#icon-padding-right {
+    padding-right: 3px;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0rem;
+}
